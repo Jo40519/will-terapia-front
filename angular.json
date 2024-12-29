@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "will-terapia-front:build:production"
+              "buildTarget": "will-terapia-front:build:production"
             },
             "development": {
-              "browserTarget": "will-terapia-front:build:development"
+              "buildTarget": "will-terapia-front:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "will-terapia-front:build"
+            "buildTarget": "will-terapia-front:build"
           }
         },
         "test": {
