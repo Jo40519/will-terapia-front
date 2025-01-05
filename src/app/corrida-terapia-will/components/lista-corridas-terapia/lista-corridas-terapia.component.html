@@ -1,0 +1,45 @@
+<section class="flex justify-content-end mt-3 mb-3">
+    <button pButton routerLink="ida-terapia/incluir">Incluir Ida a Terapia</button>
+</section>
+<p-table [value]="listaCorridaTerapia">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Indicador Levou</th>
+      <th>Indicador Trouxe</th>
+      <th>Data</th>
+      <th>Valor da Ida</th>
+      <th>Valor da Volta</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-corr>
+    <tr>
+      <td>
+        <p-tag
+            [rounded]="true"
+          [severity]="corr.indicadorPodeLevar ? 'success' : 'danger'"
+          [value]="corr.indicadorPodeLevar ? 'Sim' : 'Não'"
+        />
+      </td>
+      <td>
+      <p-tag
+      [rounded]="true"
+    [severity]="corr.indicadorPodeTrazer ? 'success' : 'danger'"
+    [value]="corr.indicadorPodeTrazer ? 'Sim' : 'Não'"
+  />
+</td>
+      <td>{{ corr.data | date: "dd/MM/yyyy" }}</td>
+      <td>{{ corr.valorCorrida }}</td>
+      <td>{{ corr.valorVolta }}</td>
+      <td>
+        <button 
+            type="button" 
+            pButton 
+            pRipple 
+            icon="pi pi-trash" 
+            (click)="deletarIdaTerapia(corr)"
+            >
+        </button>
+    </td>
+    </tr>
+  </ng-template>
+</p-table>

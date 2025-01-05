@@ -1,0 +1,8 @@
+<p-messages></p-messages>
+<p-card header="Corridas de Will à terapia">
+    <app-filtro-pesquisa></app-filtro-pesquisa>
+    <app-lista-corridas-terapia
+    [listaCorridaTerapia]="listaCorridaTerapia"
+    (confirmarDeletarTerapia)="listarCorridas()"
+    ></app-lista-corridas-terapia>
+</p-card>

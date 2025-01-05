@@ -1,0 +1,53 @@
+<p-messages></p-messages>
+<p-card
+  header="Incluir ida a terapia"
+  class="flex justify-content-center roboto-bold"
+  [style]="{ width: '70%' }"
+>
+  <form [formGroup]="formIncluirEditarTerapiWill" (ngSubmit)="incluirIdaTerapia()">
+    <section class="grid">
+      <div class="col-6 col-lg-12">
+        <p-floatLabel>
+          <p-inputNumber
+            formControlName="valorCorrida"
+            class="valorIda roboto-bold"
+            [maxFractionDigits]="2"
+            mode="decimal"
+            inputId="integeronly"
+          />
+          <label for="number-input">Valor ida</label>
+        </p-floatLabel>
+      </div>
+      <div class="col-6 col-lg-12">
+        <p-floatLabel>
+          <p-inputNumber
+            formControlName="valorVolta"
+            [maxFractionDigits]="2"
+            mode="decimal"
+            inputId="integeronly"
+          />
+          <label for="number-input">Valor Volta</label>
+        </p-floatLabel>
+      </div>
+      <div class="col-6 col-lg-12 mt-3">
+        <p-floatLabel>
+          <p-calendar formControlName="data" />
+          <label >Data</label>
+        </p-floatLabel>
+      </div>
+      <div class="col-3 col-lg-12 mt-3">
+        <label for="switch1">Indicador pode levar</label><br />
+        <p-inputSwitch formControlName="indicadorPodeLevar" inputId="switch1" />
+      </div>
+      <div class="col-3 col-lg-12 mt-3">
+        <label for="switch2">Indicador pode trazer</label><br />
+        <p-inputSwitch formControlName="indicadorPodeTrazer" inputId="switch2" />
+      </div>
+    </section>
+      <section class="flex justify-content-end mt-5">
+        <button pButton routerLink="/">Voltar</button>
+
+        <button pButton class="ml-3" type="submit">Salvar</button>
+      </section>
+</form>
+</p-card>
