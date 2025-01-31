@@ -19,7 +19,7 @@ export class IncluirEditarIdaTerapiaComponent implements OnInit {
     id: 0
   } as CorridaTerapiaWill
   formIncluirEditarTerapiWill = new FormGroup<FormIncluirEditarIdaTerapia>({
-    data: new FormControl(null),
+    data: new FormControl(new Date()),
     indicadorPodeLevar: new FormControl(true),
     indicadorPodeTrazer: new FormControl(false),
     valorCorrida: new FormControl(null),
@@ -27,6 +27,18 @@ export class IncluirEditarIdaTerapiaComponent implements OnInit {
     id: new FormControl(null),
     valorTotal: new FormControl(null),
   }) as FormGroup<FormIncluirEditarIdaTerapia>;
+
+  get indicadorPodeLevar() {
+    return this.formIncluirEditarTerapiWill.controls['indicadorPodeLevar']
+  }
+
+  get valorCorrida() {
+    return this.formIncluirEditarTerapiWill.controls['valorCorrida']
+  }
+
+  get valorVolta() {
+    return this.formIncluirEditarTerapiWill.controls['valorVolta']
+  }
   constructor(private activateRouter: ActivatedRoute, 
     private willService: CorridaTerapiaWillService, 
     private datePipe: DatePipe,
@@ -35,7 +47,7 @@ export class IncluirEditarIdaTerapiaComponent implements OnInit {
   ) {}
   ngOnInit(): void {
     this.definirTipoAcaoIdaTerapia();
-    throw new Error('Method not implemented.');
+    this.atualizaIndicadorPodeTrazer(false);
   }
 
   definirTipoAcaoIdaTerapia() {
@@ -45,14 +57,14 @@ export class IncluirEditarIdaTerapiaComponent implements OnInit {
   }
 
     incluirIdaTerapia() {
-    const dataFormatada = this.datePipe.transform(this.formIncluirEditarTerapiWill.controls['data'].value, 'yyyy-dd-MM')
+    const dataFormatada = this.datePipe.transform(this.formIncluirEditarTerapiWill.controls['data'].value, 'yyyy-MM-dd')
     const requisicao: Omit<CorridaTerapiaWill, 'id'> = {
       dataidavolta: dataFormatada!,
       indicadorPodeLevar: this.formIncluirEditarTerapiWill.controls['indicadorPodeLevar'].value!,
       indicadorPodeTrazer: this.formIncluirEditarTerapiWill.controls['indicadorPodeTrazer'].value!,
-      valorCorrida: this.formIncluirEditarTerapiWill.controls['valorCorrida'].value!,
+      valorCorrida: this.formIncluirEditarTerapiWill.controls['valorCorrida'].value! || 0,
       valorTotal: this.formIncluirEditarTerapiWill.controls['valorCorrida'].value! + this.formIncluirEditarTerapiWill.controls['valorVolta'].value!,
-      valorVolta: this.formIncluirEditarTerapiWill.controls['valorVolta'].value!
+      valorVolta: this.formIncluirEditarTerapiWill.controls['valorVolta'].value! || 0
     }
 
     this.willService.cadastrarIdaTerapi(requisicao).then((resposta) => {
@@ -60,5 +72,21 @@ export class IncluirEditarIdaTerapiaComponent implements OnInit {
       this.notificaService.criaSucesso('Ida a terapia cadastrada com sucesso!', 'Sucesso!')
       this.router.navigateByUrl('/')
     })
+  }
+
+  atualizaIndicadorPodeLevar(event: boolean) {
+    if(event) {
+      this.valorCorrida.enable();
+    } else {
+      this.valorCorrida.disable();
+    }
+  }
+
+  atualizaIndicadorPodeTrazer(event: boolean) {
+    if(event) {
+      this.valorVolta.enable();
+    } else {
+      this.valorVolta.disable();
+    }
   }
 }

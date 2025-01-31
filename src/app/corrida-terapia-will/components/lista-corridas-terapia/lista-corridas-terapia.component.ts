@@ -12,8 +12,8 @@ export class ListaCorridasTerapiaComponent {
 @Input({required: true}) listaCorridaTerapia!: Array<CorridaTerapiaWill>;
 @Output() confirmarDeletarTerapia = new EventEmitter<boolean>();
 @Output() terapiaWill = new EventEmitter<CorridaTerapiaWill>();
-
-constructor(private willService: CorridaTerapiaWillService, private notificaService: NotificaService){}
+@Input() valorTotalMes!: number;
+constructor(public willService: CorridaTerapiaWillService, private notificaService: NotificaService){}
 
  deletarIdaTerapia(idaTerapia: CorridaTerapiaWill) {
     this.willService.excluirIdaTerapia(idaTerapia).then((resposta) => {

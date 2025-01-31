@@ -2,52 +2,68 @@
 <p-card
   header="Incluir ida a terapia"
   class="flex justify-content-center roboto-bold"
-  [style]="{ width: '70%' }"
+  [style]="{ width: '53%' }"
 >
-  <form [formGroup]="formIncluirEditarTerapiWill" (ngSubmit)="incluirIdaTerapia()">
+  <form
+    [formGroup]="formIncluirEditarTerapiWill"
+    (ngSubmit)="incluirIdaTerapia()"
+  >
     <section class="grid">
-      <div class="col-6 col-lg-12">
-        <p-floatLabel>
-          <p-inputNumber
-            formControlName="valorCorrida"
-            class="valorIda roboto-bold"
-            [maxFractionDigits]="2"
-            mode="decimal"
-            inputId="integeronly"
-          />
-          <label for="number-input">Valor ida</label>
-        </p-floatLabel>
-      </div>
-      <div class="col-6 col-lg-12">
-        <p-floatLabel>
-          <p-inputNumber
-            formControlName="valorVolta"
-            [maxFractionDigits]="2"
-            mode="decimal"
-            inputId="integeronly"
-          />
-          <label for="number-input">Valor Volta</label>
-        </p-floatLabel>
-      </div>
-      <div class="col-6 col-lg-12 mt-3">
+      <div class="col-12 col-lg-12">
         <p-floatLabel>
           <p-calendar formControlName="data" />
-          <label >Data</label>
+          <label>Data</label>
         </p-floatLabel>
       </div>
-      <div class="col-3 col-lg-12 mt-3">
-        <label for="switch1">Indicador pode levar</label><br />
-        <p-inputSwitch formControlName="indicadorPodeLevar" inputId="switch1" />
+      <div class="col-6 col-lg-12">
+        <label for="switch1" class="font-bold">Indicador pode levar</label
+        ><br />
+        <p-inputSwitch
+          formControlName="indicadorPodeLevar"
+          inputId="switch1"
+          (onChange)="atualizaIndicadorPodeLevar($event.checked)"
+        />
+        <div class="mt-5">
+          <p-floatLabel>
+            <p-inputNumber
+              formControlName="valorCorrida"
+              class="valorIda roboto-bold"
+              [maxFractionDigits]="2"
+              mode="decimal"
+              inputId="integeronly"
+            />
+            <label for="number-input" class="font-bold">Valor ida</label>
+          </p-floatLabel>
+        </div>
       </div>
-      <div class="col-3 col-lg-12 mt-3">
-        <label for="switch2">Indicador pode trazer</label><br />
-        <p-inputSwitch formControlName="indicadorPodeTrazer" inputId="switch2" />
+      <div class="col-6 col-lg-12">
+        <label for="switch2" class="font-bold">Indicador pode trazer</label
+        ><br />
+        <p-inputSwitch
+          formControlName="indicadorPodeTrazer"
+          inputId="switch2"
+          (onChange)="atualizaIndicadorPodeTrazer($event.checked)"
+        />
+        <div class="mt-5">
+          <p-floatLabel>
+            <p-inputNumber
+              formControlName="valorVolta"
+              [maxFractionDigits]="2"
+              mode="decimal"
+              inputId="integeronly"
+              id="valorVolta"
+            />
+            <label for="valorVolta" class="font-bold">Valor Volta</label>
+          </p-floatLabel>
+        </div>
       </div>
     </section>
-      <section class="flex justify-content-end mt-5">
-        <button pButton routerLink="/">Voltar</button>
+    <section class="flex justify-content-end mt-5">
+      <button pButton routerLink="/" severity="help">Voltar</button>
 
-        <button pButton class="ml-3" type="submit">Salvar</button>
-      </section>
-</form>
+      <button pButton class="ml-3" type="submit" severity="success">
+        Salvar
+      </button>
+    </section>
+  </form>
 </p-card>

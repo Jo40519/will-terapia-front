@@ -17,7 +17,7 @@ import { IncluirEditarIdaTerapiaComponent } from './components/incluir-editar-id
 import { InputTextModule } from 'primeng/inputtext';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputSwitchModule } from 'primeng/inputswitch';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NotificaService } from './service/notifica.service';
 import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
@@ -37,6 +37,7 @@ import { CorridaTerapiaWillService } from './service/corrida-terapia-will.servic
     CommonModule,
     CorridaTerapiaWillRoutingModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     CardModule,
     TableModule,

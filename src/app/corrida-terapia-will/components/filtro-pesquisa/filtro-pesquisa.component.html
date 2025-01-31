@@ -1,17 +1,31 @@
 <p-accordion [activeIndex]="0">
-  <p-accordionTab header="Filtro de Pesquisa">
-    <section class="grid">
-      <div class="field col-4 col-lg-2">
-        <p-floatLabel>
-            <p-calendar 
-                inputId="birth_date" />
-            <label for="birth_date">Data</label>
-        </p-floatLabel>
-      </div>
+  <p-accordionTab>
+    <ng-template pTemplate="header">
+      <span class="flex align-items-center gap-2 w-full">
+        <h4>Filtro de pesquisa</h4>
+        <p-inputSwitch
+          [(ngModel)]="themeService.checked"
+          (click)="chengeTheme('lara-dark-purple', $event)"
+          class="ml-auto"
+        />
+      </span>
+    </ng-template>
+    <form
+      [formGroup]="willService.fomFiltro"
+      (ngSubmit)="willService.filtrarCorridas()"
+    >
+      <section class="grid mt-2">
+        <div class="field col-4 col-lg-2">
+          <p-floatLabel>
+            <p-calendar formControlName="dataFiltro" inputId="date" />
+            <label for="date">Data</label>
+          </p-floatLabel>
+        </div>
 
-      <div class="field col-2 col-lg-2">
-        <p-button label="Submit" />
-      </div>
-    </section>
+        <div class="field col-2 col-lg-2">
+          <p-button severity="success" label="Pesquisar" type="submit" />
+        </div>
+      </section>
+    </form>
   </p-accordionTab>
 </p-accordion>
