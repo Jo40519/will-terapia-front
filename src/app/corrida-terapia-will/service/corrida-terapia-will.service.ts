@@ -9,7 +9,7 @@ import { FormControl, FormGroup } from '@angular/forms';
   providedIn: 'root',
 })
 export class CorridaTerapiaWillService {
-  urlApi = 'https://terapia-back-production.up.railway.app'
+  urlApi = 'https://terapia-back-production.up.railway.app/terapia_will'
   fomFiltro = new FormGroup({
     dataFiltro: new FormControl(new Date())
   })
