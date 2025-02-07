@@ -1,6 +1,6 @@
 {
-  "name": "will-terapia-front",
-  "short_name": "will-terapia-front",
+  "name": "WTerapia",
+  "short_name": "WT",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
@@ -8,7 +8,7 @@
   "start_url": "./",
   "icons": [
     {
-      "src": "assets/icons/icon-72x72.png",
+      "src": "assets/outros-icones/favicon-96x96.png",
       "sizes": "72x72",
       "type": "image/png",
       "purpose": "maskable any"
