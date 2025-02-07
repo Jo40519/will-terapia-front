@@ -20,6 +20,7 @@
     "@angular/platform-browser": "^17.3.12",
     "@angular/platform-browser-dynamic": "^17.3.12",
     "@angular/router": "^17.3.12",
+    "@angular/service-worker": "^17.3.12",
     "@ngx-translate/core": "^16.0.4",
     "ngx-translate": "^0.0.1-security",
     "primeflex": "^3.3.1",

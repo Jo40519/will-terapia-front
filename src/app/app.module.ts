@@ -1,4 +1,4 @@
-import { LOCALE_ID, NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -15,6 +15,7 @@ import { registerLocaleData } from '@angular/common';
 
 import { MessagesModule } from "primeng/messages";
 import { MessageModule } from "primeng/message";
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 registerLocaleData(localePt); // Registra o locale
 
@@ -26,7 +27,13 @@ registerLocaleData(localePt); // Registra o locale
     AppRoutingModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
-    MessagesModule
+    MessagesModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [
     HttpClient, 
