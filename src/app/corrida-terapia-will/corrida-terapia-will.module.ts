@@ -23,6 +23,8 @@ import { MessageService } from 'primeng/api';
 import { MessagesModule } from 'primeng/messages';
 import { ToastModule } from 'primeng/toast';
 import { CorridaTerapiaWillService } from './service/corrida-terapia-will.service';
+import { MessagingService } from './service/messaging.service';
+import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 
 
 
@@ -52,6 +54,6 @@ import { CorridaTerapiaWillService } from './service/corrida-terapia-will.servic
     MessagesModule,
     ToastModule
   ],
-  providers: [DatePipe, NotificaService, MessageService, CorridaTerapiaWillService]
+  providers: [DatePipe, NotificaService, MessageService, CorridaTerapiaWillService, MessagingService, AngularFireMessaging]
 })
 export class CorridaTerapiaWillModule {}
