@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1739276496986,
+  "timestamp": 1739277124225,
   "index": "/will-terapia-front/index.html",
   "assetGroups": [
     {
@@ -14,7 +14,6 @@
         "/will-terapia-front/304.5fd767f0c71d13a1.js",
         "/will-terapia-front/390.4213875377325057.js",
         "/will-terapia-front/favicon.ico",
-        "/will-terapia-front/firebase-messaging-sw.js",
         "/will-terapia-front/index.html",
         "/will-terapia-front/lara-dark-purple.css",
         "/will-terapia-front/lara-light-purple.css",
@@ -84,7 +83,6 @@
     "/will-terapia-front/assets/outros-icones/web-app-manifest-512x512.png": "03205cb483ee731054a9e91ca3354a569658d72b",
     "/will-terapia-front/color.febf5f041e83bfbe.png": "c54e4eac0b6c88b9da8cfdf00b1d9093b828286b",
     "/will-terapia-front/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/will-terapia-front/firebase-messaging-sw.js": "835cca61cc50898cf03afb35ebf3b47247efac09",
     "/will-terapia-front/hue.de26927932756490.png": "ec215387067c733aed6649b96d8a81798a58b21b",
     "/will-terapia-front/index.html": "475c8883339752008b08092fd31bc94fdf879938",
     "/will-terapia-front/lara-dark-purple.css": "9770d084ef3ed77b369fdb629ebcef633298c19e",
