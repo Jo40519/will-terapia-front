@@ -1,5 +1,5 @@
 export const environment = {
-    firebaseConfigDev: {
+    firebaseConfig: {
         apiKey: "AIzaSyA3lcW6n-BTd8Ij-W89JqzIf2GuHPo5f3g",
         authDomain: "notificacoes-terapia.firebaseapp.com",
         projectId: "notificacoes-terapia",

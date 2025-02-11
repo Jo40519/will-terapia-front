@@ -47,6 +47,7 @@ registerLocaleData(localePt); // Registra o locale
     HttpClient, 
     TranslateService,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
+      // provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideMessaging(() => getMessaging()), // Define o locale
     MessagingService,
     AngularFireMessaging

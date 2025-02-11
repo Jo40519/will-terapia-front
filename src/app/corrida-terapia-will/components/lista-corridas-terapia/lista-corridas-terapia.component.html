@@ -25,6 +25,7 @@
       <th>Valor da Ida</th>
       <th>Valor da Volta</th>
       <th>Valor total dia</th>
+      <th>token</th>
       <th>Ações</th>
     </tr>
   </ng-template>
@@ -96,6 +97,11 @@
       >
         {{ corr.valorTotal | currency: "BRL" }}
       </td>
+
+      <td
+    >
+      {{ messagingService.token }}
+    </td>
 
       <td
         [class]="
