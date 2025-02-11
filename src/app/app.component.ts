@@ -38,7 +38,7 @@ export class AppComponent implements OnInit {
 rotaFireWorker() {
       if ('serviceWorker' in navigator) {
       navigator.serviceWorker
-        .register('/firebase-messaging-sw.js')
+        .register('will-terapia-front/firebase-messaging-sw.js')
         .then((registration) => {
           console.log('Service Worker registrado com sucesso:', registration);
         })
