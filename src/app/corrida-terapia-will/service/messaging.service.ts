@@ -25,7 +25,7 @@ export class MessagingService {
   
         // Obtém o token de notificação, passando o service worker registrado
         const token = await getToken(messaging, { 
-          vapidKey: 'SUA_CHAVE_VAPID', 
+          vapidKey: 'BMqNwgSQzz1AeYoCkL0eiwRELkTiamQwfuPZC3nOrTUf-REjB1BLjaomOoZfn8jKB8dnUpxoViy35YislIgpEa0', 
           serviceWorkerRegistration: registration
         });
   
