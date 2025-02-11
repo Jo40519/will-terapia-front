@@ -20,7 +20,7 @@ import { MessagingService } from './corrida-terapia-will/service/messaging.servi
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
 import { AngularFireMessagingModule } from '@angular/fire/compat/messaging';
 import { AngularFireModule } from '@angular/fire/compat';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 registerLocaleData(localePt); // Registra o locale
 
@@ -40,14 +40,14 @@ registerLocaleData(localePt); // Registra o locale
       registrationStrategy: 'registerWhenStable:30000',
       
     }),
-    AngularFireModule.initializeApp(environment.firebaseConfigDev),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireMessagingModule
   ],
   providers: [
     HttpClient, 
     TranslateService,
     { provide: LOCALE_ID, useValue: 'pt-BR' },
-      provideFirebaseApp(() => initializeApp(environment.firebaseConfigDev)),
+      provideFirebaseApp(() => initializeApp(environment.firebaseConfig)),
     provideMessaging(() => getMessaging()), // Define o locale
     MessagingService,
     AngularFireMessaging
