@@ -25,9 +25,9 @@ export class AppComponent implements OnInit {
         dateFormat: "dd/mm/yy"
   });
   this.translate('pt');
+  this.rotaFireWorker();
   this.messagingService.requestPermission()
   this.messagingService.receiveMessage()
-  this.rotaFireWorker();
   }
 
   translate(lang: string) {
