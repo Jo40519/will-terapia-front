@@ -26,7 +26,7 @@ export class AppComponent implements OnInit {
   });
   this.translate('pt');
   this.rotaFireWorker();
-  this.messagingService.requestPermission()
+  void this.messagingService.requestPermission()
   this.messagingService.receiveMessage()
   }
 
