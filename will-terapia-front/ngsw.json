@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1739278384712,
+  "timestamp": 1739278796895,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -14,7 +14,6 @@
         "/304.5fd767f0c71d13a1.js",
         "/390.4213875377325057.js",
         "/favicon.ico",
-        "/firebase-messaging-sw.js",
         "/index.html",
         "/lara-dark-purple.css",
         "/lara-light-purple.css",
@@ -84,7 +83,6 @@
     "/assets/outros-icones/web-app-manifest-512x512.png": "03205cb483ee731054a9e91ca3354a569658d72b",
     "/color.febf5f041e83bfbe.png": "c54e4eac0b6c88b9da8cfdf00b1d9093b828286b",
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
-    "/firebase-messaging-sw.js": "835cca61cc50898cf03afb35ebf3b47247efac09",
     "/hue.de26927932756490.png": "ec215387067c733aed6649b96d8a81798a58b21b",
     "/index.html": "bd5aaced4e695b01dea2c20db66daf19d42ef42f",
     "/lara-dark-purple.css": "9770d084ef3ed77b369fdb629ebcef633298c19e",
