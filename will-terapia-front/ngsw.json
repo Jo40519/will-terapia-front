@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1739279917246,
+  "timestamp": 1739280064569,
   "index": "/index.html",
   "assetGroups": [
     {
@@ -18,7 +18,7 @@
         "/index.html",
         "/lara-dark-purple.css",
         "/lara-light-purple.css",
-        "/main.08c7f68e3e087633.js",
+        "/main.7e2ebd904a299984.js",
         "/manifest.webmanifest",
         "/polyfills.8934e40b2532ba26.js",
         "/runtime.e530fec8013da738.js",
@@ -86,10 +86,10 @@
     "/favicon.ico": "22f6a4a3bcaafafb0254e0f2fa4ceb89e505e8b2",
     "/firebase-messaging-sw.js": "835cca61cc50898cf03afb35ebf3b47247efac09",
     "/hue.de26927932756490.png": "ec215387067c733aed6649b96d8a81798a58b21b",
-    "/index.html": "ce3062b1f846fa69f37ac1470370b140113163e8",
+    "/index.html": "d5bb14310f63c578699de26203ff1806670c6dce",
     "/lara-dark-purple.css": "9770d084ef3ed77b369fdb629ebcef633298c19e",
     "/lara-light-purple.css": "31f415df02282f2619552ea9cb083787f9efa733",
-    "/main.08c7f68e3e087633.js": "f650fa836fbcbff05c3677878aa371e1c522f80c",
+    "/main.7e2ebd904a299984.js": "93deae715e73e4bf4a5f615cce4e4b3986a8ad1b",
     "/manifest.webmanifest": "cb25624d8634645d92bc48028ad1148b700dbe94",
     "/polyfills.8934e40b2532ba26.js": "b931cc74fb5f924a895fe49944aed1df6c1471e0",
     "/primeicons.19e14e488f5edc90.svg": "a07ae39027c1a780b42fd82fad7575c2924d9d28",
