@@ -27,6 +27,7 @@ export class AppComponent implements OnInit {
   this.translate('pt');
   this.messagingService.requestPermission()
   this.messagingService.receiveMessage()
+  this.rotaFireWorker();
   }
 
   translate(lang: string) {
@@ -35,16 +36,16 @@ export class AppComponent implements OnInit {
 }
 
 rotaFireWorker() {
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker
-      .register('/firebase-messaging-sw.js')
-      .then((registration) => {
-        console.log('Service Worker registrado com sucesso:', registration);
-      })
-      .catch((error) => {
-        console.error('Falha ao registrar o Service Worker:', error);
-      });
-  }
+      if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/firebase-messaging-sw.js')
+        .then((registration) => {
+          console.log('Service Worker registrado com sucesso:', registration);
+        })
+        .catch((error) => {
+          console.error('Falha ao registrar o Service Worker:', error);
+        });
+    }
 }
 
 
