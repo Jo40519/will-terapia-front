@@ -1,6 +1,6 @@
 {
   "name": "will-terapia-front",
-  "version": "1.0.0-rc2",
+  "version": "1.0.0-rc3",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --disable-host-check",
