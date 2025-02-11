@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CorridaTerapiaWillService } from '../../service/corrida-terapia-will.service';
 import { ThemeService } from '../../service/theme.service';
+import { MessagingService } from '../../service/messaging.service';
 
 @Component({
   selector: 'app-filtro-pesquisa',
@@ -9,7 +10,7 @@ import { ThemeService } from '../../service/theme.service';
 })
 export class FiltroPesquisaComponent {
   checked!: boolean
-  constructor(public willService: CorridaTerapiaWillService, public themeService: ThemeService){}
+  constructor(public willService: CorridaTerapiaWillService, public themeService: ThemeService, public messagingService: MessagingService){}
 
   chengeTheme(theme: string, event: MouseEvent) {
     event.stopPropagation();

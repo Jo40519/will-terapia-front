@@ -10,6 +10,7 @@ import { take } from 'rxjs';
 export class MessagingService {
 
   currentMessage: any;
+  token = '';
 
   constructor(private afMessaging: AngularFireMessaging) { }
 
@@ -31,6 +32,7 @@ export class MessagingService {
   
         if (token) {
           console.log("Token FCM:", token);
+          this.token = token;
         } else {
           console.warn("Nenhum token FCM disponível.");
         }
