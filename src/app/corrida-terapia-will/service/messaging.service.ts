@@ -31,7 +31,6 @@ export class MessagingService {
         });
   
         if (token) {
-          alert(token);
           this.token = token;
         } else {
           console.warn("Nenhum token FCM disponível.");
@@ -40,12 +39,6 @@ export class MessagingService {
       } catch (err) {
         console.error("Erro ao registrar Service Worker ou obter token:", err);
       }
-    // this.afMessaging.requestToken
-    //   .pipe(take(1))
-    //   .subscribe(
-    //     (token) => console.log('Token de notificação:', token),
-    //     (error) => console.error('Erro ao obter permissão', error)
-    //   );
   }
 
   receiveMessage() {

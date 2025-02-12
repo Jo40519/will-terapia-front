@@ -25,6 +25,7 @@ import { ToastModule } from 'primeng/toast';
 import { CorridaTerapiaWillService } from './service/corrida-terapia-will.service';
 import { MessagingService } from './service/messaging.service';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
+import { CheckboxModule } from 'primeng/checkbox'
 
 
 
@@ -52,7 +53,8 @@ import { AngularFireMessaging } from '@angular/fire/compat/messaging';
     InputNumberModule,
     InputSwitchModule,
     MessagesModule,
-    ToastModule
+    ToastModule,
+    CheckboxModule
   ],
   providers: [DatePipe, NotificaService, MessageService, CorridaTerapiaWillService, MessagingService, AngularFireMessaging]
 })

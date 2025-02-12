@@ -32,6 +32,10 @@ export class IncluirEditarIdaTerapiaComponent implements OnInit {
     return this.formIncluirEditarTerapiWill.controls['indicadorPodeLevar']
   }
 
+  get indicadorPodeTrazer() {
+    return this.formIncluirEditarTerapiWill.controls['indicadorPodeTrazer']
+  }
+
   get valorCorrida() {
     return this.formIncluirEditarTerapiWill.controls['valorCorrida']
   }

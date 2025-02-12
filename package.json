@@ -1,6 +1,6 @@
 {
   "name": "will-terapia-front",
-  "version": "1.0.0-rc5",
+  "version": "1.0.1-rc0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --disable-host-check",
@@ -59,6 +59,7 @@
     "prettier": "^3.4.2",
     "puppeteer": "^23.11.1",
     "shx": "^0.3.4",
+    "tailwindcss": "^3.4.17",
     "typescript": "~5.4.5"
   }
 }

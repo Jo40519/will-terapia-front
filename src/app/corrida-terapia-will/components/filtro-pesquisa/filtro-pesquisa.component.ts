@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CorridaTerapiaWillService } from '../../service/corrida-terapia-will.service';
 import { ThemeService } from '../../service/theme.service';
 
@@ -7,12 +7,16 @@ import { ThemeService } from '../../service/theme.service';
   templateUrl: './filtro-pesquisa.component.html',
   styleUrl: './filtro-pesquisa.component.scss'
 })
-export class FiltroPesquisaComponent {
+export class FiltroPesquisaComponent implements OnInit {
   checked!: boolean
   constructor(public willService: CorridaTerapiaWillService, public themeService: ThemeService){}
+  ngOnInit(): void {
+    this.themeService.checked = true
+    this.chengeTheme('lara-dark-purple')
+  }
 
-  chengeTheme(theme: string, event: MouseEvent) {
-    event.stopPropagation();
+  chengeTheme(theme: string, event?: MouseEvent) {
+    event?.stopPropagation();
     if(this.themeService.checked) {
       this.themeService.changeTheme(theme)
 

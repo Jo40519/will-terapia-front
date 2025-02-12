@@ -1,13 +1,13 @@
 <section class="flex justify-content-between mt-3 mb-3">
   <h3 class="font-bold">
-    Valor total a ser pago mês de
+    Valor total
     {{ willService["dataFiltro"].value | date: "MMMM" }} de
     {{ willService["dataFiltro"].value | date: "yyyy" }}:
     {{ willService.valorTotalMes | currency: "BRL" }}
   </h3>
-  <button pButton routerLink="ida-terapia/incluir">
+  <p-button severity="secondary" [raised]="true" routerLink="ida-terapia/incluir">
     Incluir Ida a Terapia
-  </button>
+  </p-button>
 </section>
 <p-table
   [value]="listaCorridaTerapia"

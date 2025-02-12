@@ -1,4 +1,91 @@
 <p-messages></p-messages>
+
+<p-card
+  header="Incluir ida à terapia"
+  class="flex justify-content-center roboto-bold p-4"
+  [style]="{ maxWidth: '800px', width: '100%' }"
+>
+  <form
+    [formGroup]="formIncluirEditarTerapiWill"
+    (ngSubmit)="incluirIdaTerapia()"
+    class="p-fluid"
+  >
+    <section class="grid gap-4">
+      <!-- Campo de Data -->
+      <div class="col-12">
+        <p-floatLabel>
+          <p-calendar formControlName="data" showIcon />
+          <label>Data</label>
+        </p-floatLabel>
+      </div>
+
+      <!-- Indicador Pode Levar + Valor Ida -->
+      <div class="col-12 sm:col-12">
+        <div class="flex align-items-center">
+          <p-checkbox 
+              label="Indicador pode levar"
+              [value]="indicadorPodeLevar.value" 
+              formControlName="indicadorPodeLevar"
+              [binary]="true"
+              (onChange)="atualizaIndicadorPodeLevar($event.checked)"
+              />
+      </div>
+        <div class="mt-5">
+          <p-floatLabel>
+            <p-inputNumber
+              formControlName="valorCorrida"
+              [maxFractionDigits]="2"
+              mode="decimal"
+              inputId="integeronly"
+              locale="pt-BR"
+              currency="BRL"
+              [minFractionDigits]="2"
+            />
+            <label>Valor Ida</label>
+          </p-floatLabel>
+        </div>
+      </div>
+
+      <!-- Indicador Pode Trazer + Valor Volta -->
+      <div class="col-12 sm:col-12">
+        <div class="flex align-items-center">
+          <p-checkbox 
+              label="Indicador pode trazer" 
+                formControlName="indicadorPodeTrazer"
+                [value]="indicadorPodeTrazer.value" 
+                [binary]="true"
+                (onChange)="atualizaIndicadorPodeTrazer($event.checked)"
+                />
+      </div>
+        <div class="mt-5">
+          <p-floatLabel>
+            <p-inputNumber
+              formControlName="valorVolta"
+              mode="decimal"
+              inputId="valorVolta"
+              locale="pt-BR"
+              currency="BRL"
+              [minFractionDigits]="2"
+            />
+            <label>Valor Volta</label>
+          </p-floatLabel>
+        </div>
+      </div>
+    </section>
+
+    <!-- Botões -->
+    <section class="flex flex-col sm:flex-row gap-3 mt-5">
+      <p-button routerLink="/" [raised]="true" severity="info" class="w-full sm:w-auto">
+        Voltar
+      </p-button>
+      <p-button type="submit" [raised]="true" severity="success" class="w-full sm:w-auto">
+        Salvar
+      </p-button>
+    </section>
+  </form>
+</p-card>
+
+<!-- <p-messages></p-messages>
 <p-card
   header="Incluir ida a terapia"
   class="flex justify-content-center roboto-bold"
@@ -66,4 +153,4 @@
       </button>
     </section>
   </form>
-</p-card>
+</p-card> -->
