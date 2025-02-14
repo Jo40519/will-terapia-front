@@ -29,6 +29,7 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { SkeletonModule } from 'primeng/skeleton';
 import { InputTextareaModule } from 'primeng/inputtextarea';
 
+
 @NgModule({
   declarations: [
     CorridaTerapiaWillComponent,

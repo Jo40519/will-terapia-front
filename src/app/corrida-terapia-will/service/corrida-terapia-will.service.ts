@@ -23,11 +23,10 @@ export class CorridaTerapiaWillService {
   detalheCorridaSubject = new BehaviorSubject<CorridaTerapiaWill>({} as CorridaTerapiaWill)
   detalheCorrida$ = this.detalheCorridaSubject.asObservable()
 
-  mensagensAlertSubject = new BehaviorSubject<Message[]>([])
-  mensagensAlert$ = this.mensagensAlertSubject.asObservable();
+  mensagensAlert: Message[] = [];
   ano!: number;
   mes!: number;
-  valorTotalMes!: number;
+  valorTotalMes!: number | null;
 
 
   get dataFiltro() {
@@ -76,6 +75,7 @@ export class CorridaTerapiaWillService {
   }
 
   async filtrarCorridas() {
+    this.valorTotalMes = null;
     const dataUsar = this.datePipe.transform(
       this.dataFiltro.value,
       'yyyy-MM-dd'
@@ -105,10 +105,11 @@ export class CorridaTerapiaWillService {
   }
 
   executarMensagens(mensagem: string, severity: string, summary: string) {
-    this.mensagensAlertSubject.next([{
+    console.log('QUANTAS VEZES ESTOU SENDO CHAMADA?')
+    this.mensagensAlert.push({
       detail: mensagem,
       severity: severity,
       summary: summary
-    }])
+    })
   }
 }

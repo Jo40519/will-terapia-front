@@ -5,7 +5,7 @@ import { TranslateService } from '@ngx-translate/core';
 import { NotificaService } from './service/notifica.service';
 import { DatePipe } from '@angular/common';
 import { Message } from 'primeng/api';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-corrida-terapia-will',
@@ -17,30 +17,28 @@ export class CorridaTerapiaWillComponent implements OnInit, OnDestroy {
   terapiaWill: CorridaTerapiaWill = {} as CorridaTerapiaWill;
   ano!: number;
   mes!: number;
-  valorTotalMes!: number;
-  subs: Array<Subscription> = [];
-  mensagens: Message[] | undefined
+  valorTotalMes!: number | null;
+  mensagens: Message[] | undefined;
 
 
   constructor(
     public willService: CorridaTerapiaWillService,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
   ) {}
 
   async ngOnInit() {
     await this.listarCorridas();
-    const subMensagem = this.willService.mensagensAlert$.subscribe((mensagem) => {
-      this.mensagens = mensagem
-      console.log('MENSAGENS AQUI ==>', this.mensagens);
-    })
-    this.subs.push(subMensagem);
   }
 
   async listarCorridas() {
-    const dataUsar = this.datePipe.transform(this.willService.fomFiltro.controls['dataFiltro'].value, 'yyyy-MM-dd')
-    this.formatarData(dataUsar!)
+    this.valorTotalMes = null;
+    const dataUsar = this.datePipe.transform(
+      this.willService.fomFiltro.controls['dataFiltro'].value,
+      'yyyy-MM-dd',
+    );
+    this.formatarData(dataUsar!);
     await this.willService.filtrarCorridas().then((resposta) => {
-     const subCorr =  this.willService.listaCorridas$.subscribe((corridas) => {
+      this.willService.listaCorridas$.subscribe((corridas) => {
         this.listaCorridaTerapia = corridas;
         corridas.forEach((idas) => {
           this.formatarData(idas.dataidavolta as string);
@@ -48,8 +46,7 @@ export class CorridaTerapiaWillComponent implements OnInit, OnDestroy {
             this.valorTotalMes = res;
           });
         });
-        this.subs.push(subCorr);
-      })
+      });
     });
   }
 
@@ -60,8 +57,7 @@ export class CorridaTerapiaWillComponent implements OnInit, OnDestroy {
     console.log('MES E ANO', this.mes, this.ano);
   }
 
-
   ngOnDestroy(): void {
-    this.subs.forEach((subs) => subs.unsubscribe());
+    this.willService.mensagensAlert = [];
   }
 }

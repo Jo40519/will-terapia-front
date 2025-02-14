@@ -1,4 +1,4 @@
-<p-messages [enableService]="false" [(value)]="mensagens!" [closable]="true"></p-messages>
+<p-messages [enableService]="false" [(value)]="willService.mensagensAlert" [closable]="true"></p-messages>
 <div class="surface-card p-4 shadow-2 border-round">
     <div class="text-3xl font-medium text-900 mb-3">Terapia Will</div>
 
@@ -6,14 +6,6 @@
     <app-lista-corridas-terapia
     [listaCorridaTerapia]="listaCorridaTerapia"
     (confirmarDeletarTerapia)="listarCorridas()"
-    [valorTotalMes]="valorTotalMes"
+    [valorTotalMes]="valorTotalMes!"
     ></app-lista-corridas-terapia>
 </div>
-<!-- <p-card header="Corridas de Will à terapia">
-    <app-filtro-pesquisa></app-filtro-pesquisa>
-    <app-lista-corridas-terapia
-    [listaCorridaTerapia]="listaCorridaTerapia"
-    (confirmarDeletarTerapia)="listarCorridas()"
-    [valorTotalMes]="valorTotalMes"
-    ></app-lista-corridas-terapia>
-</p-card> -->

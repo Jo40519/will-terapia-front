@@ -149,11 +149,6 @@ export class IncluirEditarIdaTerapiaComponent implements OnInit, OnDestroy {
       data: dataCorrigida,
       id: corrida.id!,
     });
-
-    console.log(
-      'COMO ESTÁ VINDO O FORM PREENCHIDO',
-      this.formIncluirEditarTerapiWill.value,
-    );
   }
 
   ngOnDestroy() {
