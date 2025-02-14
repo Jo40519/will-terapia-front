@@ -32,6 +32,7 @@ export class MessagingService {
   
         if (token) {
           this.token = token;
+          console.log('TOKEN AQUI ==>', token);
         } else {
           console.warn("Nenhum token FCM disponível.");
         }

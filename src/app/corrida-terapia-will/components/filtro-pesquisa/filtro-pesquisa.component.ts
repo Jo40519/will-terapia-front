@@ -12,7 +12,6 @@ export class FiltroPesquisaComponent implements OnInit {
   constructor(public willService: CorridaTerapiaWillService, public themeService: ThemeService){}
   ngOnInit(): void {
     this.themeService.checked = true
-    this.chengeTheme('lara-dark-purple')
   }
 
   chengeTheme(theme: string, event?: MouseEvent) {

@@ -5,7 +5,8 @@ export interface CorridaTerapiaWill {
     valorCorrida: number;
     valorVolta: number;
     valorTotal: number;
-    dataidavolta: string | Date;
+    dataidavolta: string;
     indicadorPodeLevar: boolean;
     indicadorPodeTrazer: boolean;
+    descricao: string;
 }

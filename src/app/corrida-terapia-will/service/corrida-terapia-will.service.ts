@@ -4,12 +4,15 @@ import { BehaviorSubject, firstValueFrom, last, lastValueFrom } from 'rxjs';
 import { CorridaTerapiaWill } from '../model/CorridaTerapiaWill';
 import { DatePipe } from '@angular/common';
 import { FormControl, FormGroup } from '@angular/forms';
+import { Message } from 'primeng/api';
+
 
 @Injectable({
   providedIn: 'root',
 })
 export class CorridaTerapiaWillService {
   urlApi = 'https://terapia-back-production.up.railway.app/terapia_will'
+  desenvUrl = 'http://localhost:8081/terapia_will'
   fomFiltro = new FormGroup({
     dataFiltro: new FormControl(new Date())
   })
@@ -17,9 +20,15 @@ export class CorridaTerapiaWillService {
   listaCorridasSubject = new BehaviorSubject<CorridaTerapiaWill[]>([])
   listaCorridas$ = this.listaCorridasSubject.asObservable();
 
+  detalheCorridaSubject = new BehaviorSubject<CorridaTerapiaWill>({} as CorridaTerapiaWill)
+  detalheCorrida$ = this.detalheCorridaSubject.asObservable()
+
+  mensagensAlertSubject = new BehaviorSubject<Message[]>([])
+  mensagensAlert$ = this.mensagensAlertSubject.asObservable();
   ano!: number;
   mes!: number;
   valorTotalMes!: number;
+
 
   get dataFiltro() {
     return this.fomFiltro.controls['dataFiltro']
@@ -29,30 +38,41 @@ export class CorridaTerapiaWillService {
 
   async listarCorridas(): Promise<Array<CorridaTerapiaWill>> {
     return lastValueFrom(
-      this.http.get(this.urlApi),
+      this.http.get(this.desenvUrl),
     ) as Object as Array<CorridaTerapiaWill>;
   }
   
   async listarCorridaMesAno(ano: number, mes: number): Promise<any[]> {
-    return firstValueFrom(this.http.get<any[]>(`${this.urlApi}/listar/${ano}/${mes}`));
+    return firstValueFrom(this.http.get<any[]>(`${this.desenvUrl}/listar/${ano}/${mes}`));
   }
 
   async cadastrarIdaTerapi(
     entrada: CorridaTerapiaWill
   ): Promise<CorridaTerapiaWill> {
     return firstValueFrom(
-      this.http.post(this.urlApi, entrada),
+      this.http.post(this.desenvUrl, entrada),
+    ) as Object as CorridaTerapiaWill;
+  }
+
+  async alterarTerapia(terapiaWill: CorridaTerapiaWill): Promise<CorridaTerapiaWill> {
+    return firstValueFrom(
+      this.http.put(`${this.desenvUrl}/${terapiaWill.id}`, terapiaWill)
     ) as Object as CorridaTerapiaWill;
   }
 
   async excluirIdaTerapia(terapiaWill: CorridaTerapiaWill) {
     return firstValueFrom(
-      this.http.delete(`${this.urlApi}/${terapiaWill.id}`)
+      this.http.delete(`${this.desenvUrl}/${terapiaWill.id}`)
     )
   }
 
   async getSomaPorMes(ano: number, mes: number): Promise<number> {
-    return firstValueFrom(this.http.get<number>(`${this.urlApi}/soma/${ano}/${mes}`));
+    return firstValueFrom(this.http.get<number>(`${this.desenvUrl}/soma/${ano}/${mes}`));
+  }
+
+    detalharCorrida(corridaTerapia: CorridaTerapiaWill) {
+    this.detalheCorridaSubject.next({} as CorridaTerapiaWill);
+    this.detalheCorridaSubject.next(corridaTerapia);
   }
 
   async filtrarCorridas() {
@@ -82,5 +102,13 @@ export class CorridaTerapiaWillService {
     this.ano = +`${dataFormatada[0]}`;
     this.mes = +`${dataFormatada[1]}`;
     console.log('MES E ANO', this.mes, this.ano);
+  }
+
+  executarMensagens(mensagem: string, severity: string, summary: string) {
+    this.mensagensAlertSubject.next([{
+      detail: mensagem,
+      severity: severity,
+      summary: summary
+    }])
   }
 }

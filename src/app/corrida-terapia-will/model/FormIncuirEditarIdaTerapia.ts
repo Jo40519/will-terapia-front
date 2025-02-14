@@ -9,4 +9,5 @@ export interface FormIncluirEditarIdaTerapia {
   id: FormControl<number | null>;
   valorTotal: FormControl<number | null>;
   valorVolta: FormControl<number | null>;
+  descricao: FormControl<string | null>;
 }

@@ -1,4 +1,3 @@
-<p-messages></p-messages>
 
 <p-card
   header="Incluir ida à terapia"
@@ -71,11 +70,23 @@
           </p-floatLabel>
         </div>
       </div>
+
+      <div class="col-12 sm:col-12">
+        <p-floatLabel>
+          <textarea 
+              id="float-input" 
+              rows="5" cols="30" 
+              formControlName="descricao"
+              pInputTextarea>
+          </textarea>
+          <label for="float-input">Descrição</label>
+      </p-floatLabel>
+      </div>
     </section>
 
     <!-- Botões -->
     <section class="flex flex-col sm:flex-row gap-3 mt-5">
-      <p-button routerLink="/" [raised]="true" severity="info" class="w-full sm:w-auto">
+      <p-button type="button" routerLink="/" [raised]="true" severity="info" class="w-full sm:w-auto">
         Voltar
       </p-button>
       <p-button type="submit" [raised]="true" severity="success" class="w-full sm:w-auto">

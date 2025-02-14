@@ -7,7 +7,9 @@ import { Inject, Injectable } from '@angular/core';
 export class ThemeService {
 
   checked!: boolean
-  constructor(@Inject(DOCUMENT) private document: Document) { }
+  constructor(@Inject(DOCUMENT) private document: Document) {
+    this.changeTheme('lara-dark-purple')
+   }
 
   changeTheme(theme: string) {
     let themeLink = this.document.getElementById('app-theme') as HTMLLinkElement

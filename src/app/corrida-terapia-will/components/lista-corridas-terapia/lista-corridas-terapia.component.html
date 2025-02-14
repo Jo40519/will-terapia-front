@@ -28,7 +28,12 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-corr>
-    <tr>
+    <ng-template #corrSkeleton>
+      <tr>
+        <td><p-skeleton /></td>
+      </tr>
+    </ng-template>
+    <tr *ngIf="listaCorridaTerapia.length > 0; else corrSkeleton">
       <td
         [class]="
           corr.indicadorPodeLevar && corr.indicadorPodeTrazer
@@ -97,21 +102,33 @@
       </td>
 
       <td
-        [class]="
-          corr.indicadorPodeLevar && corr.indicadorPodeTrazer
-            ? 'bg-green-200'
-            : 'bg-red-200'
-        "
-      >
-        <button
-          type="button"
-          pButton
-          pRipple
-          severity="danger"
-          icon="pi pi-trash"
-          (click)="deletarIdaTerapia(corr)"
-        ></button>
-      </td>
+  [class]="
+    corr.indicadorPodeLevar && corr.indicadorPodeTrazer
+      ? 'bg-green-200'
+      : 'bg-red-200'
+  "
+>
+  <div class="flex flex-wrap gap-2 justify-center">
+    <button
+      type="button"
+      pButton
+      pRipple
+      severity="danger"
+      icon="pi pi-trash"
+      (click)="deletarIdaTerapia(corr)"
+    ></button>
+
+    <button
+      type="button"
+      pButton
+      pRipple
+      severity="info"
+      icon="pi pi-pencil"
+      (click)="detalharRedirecionarCorrida(corr, 'editar')"
+    ></button>
+  </div>
+</td>
+
     </tr>
   </ng-template>
 </p-table>

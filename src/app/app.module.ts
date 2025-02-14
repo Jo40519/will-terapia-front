@@ -12,9 +12,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import localePt from '@angular/common/locales/pt';
 import { registerLocaleData } from '@angular/common';
 
-import { MessagesModule } from "primeng/messages";
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getMessaging, provideMessaging } from '@angular/fire/messaging';
 import { MessagingService } from './corrida-terapia-will/service/messaging.service';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
@@ -32,7 +30,6 @@ registerLocaleData(localePt); // Registra o locale
     AppRoutingModule,
     BrowserAnimationsModule,
     TranslateModule.forRoot(),
-    MessagesModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
       // Register the ServiceWorker as soon as the application is stable

@@ -3,6 +3,7 @@ import { CorridaTerapiaWill } from '../../model/CorridaTerapiaWill';
 import { CorridaTerapiaWillService } from '../../service/corrida-terapia-will.service';
 import { NotificaService } from '../../service/notifica.service';
 import { MessagingService } from '../../service/messaging.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista-corridas-terapia',
@@ -18,15 +19,22 @@ export class ListaCorridasTerapiaComponent {
     public willService: CorridaTerapiaWillService,
     private notificaService: NotificaService,
     public messagingService: MessagingService,
+    private router: Router
   ) {}
 
   deletarIdaTerapia(idaTerapia: CorridaTerapiaWill) {
     this.willService.excluirIdaTerapia(idaTerapia).then((resposta) => {
-      this.notificaService.criaSucesso(
+      this.willService.executarMensagens(
         'Ida a terapia deletada com sucesso.',
-        'Sucesso!',
+        'success',
+        'Sucesso!'
       );
       this.confirmarDeletarTerapia.emit(true);
     });
+  }
+
+    detalharRedirecionarCorrida(corrida: CorridaTerapiaWill, tipoAcao: string) {
+    this.willService.detalharCorrida(corrida)
+      this.router.navigateByUrl(`corrida-terapia-will/ida-terapia/${tipoAcao}`)
   }
 }

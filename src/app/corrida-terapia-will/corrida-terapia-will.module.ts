@@ -11,7 +11,7 @@ import { TagModule } from 'primeng/tag';
 import { AccordionModule } from 'primeng/accordion';
 import { FiltroPesquisaComponent } from './components/filtro-pesquisa/filtro-pesquisa.component';
 import { CalendarModule } from 'primeng/calendar';
-import { FloatLabelModule } from 'primeng/floatlabel'
+import { FloatLabelModule } from 'primeng/floatlabel';
 import { ButtonModule } from 'primeng/button';
 import { IncluirEditarIdaTerapiaComponent } from './components/incluir-editar-ida-terapia/incluir-editar-ida-terapia.component';
 import { InputTextModule } from 'primeng/inputtext';
@@ -25,16 +25,16 @@ import { ToastModule } from 'primeng/toast';
 import { CorridaTerapiaWillService } from './service/corrida-terapia-will.service';
 import { MessagingService } from './service/messaging.service';
 import { AngularFireMessaging } from '@angular/fire/compat/messaging';
-import { CheckboxModule } from 'primeng/checkbox'
-
-
+import { CheckboxModule } from 'primeng/checkbox';
+import { SkeletonModule } from 'primeng/skeleton';
+import { InputTextareaModule } from 'primeng/inputtextarea';
 
 @NgModule({
   declarations: [
     CorridaTerapiaWillComponent,
     ListaCorridasTerapiaComponent,
     FiltroPesquisaComponent,
-    IncluirEditarIdaTerapiaComponent
+    IncluirEditarIdaTerapiaComponent,
   ],
   imports: [
     CommonModule,
@@ -54,8 +54,17 @@ import { CheckboxModule } from 'primeng/checkbox'
     InputSwitchModule,
     MessagesModule,
     ToastModule,
-    CheckboxModule
+    CheckboxModule,
+    SkeletonModule,
+    InputTextareaModule,
   ],
-  providers: [DatePipe, NotificaService, MessageService, CorridaTerapiaWillService, MessagingService, AngularFireMessaging]
+  providers: [
+    DatePipe,
+    NotificaService,
+    MessageService,
+    CorridaTerapiaWillService,
+    MessagingService,
+    AngularFireMessaging,
+  ],
 })
 export class CorridaTerapiaWillModule {}
