@@ -3,8 +3,8 @@
     Valor total
     {{ willService["dataFiltro"].value | date: "MMMM" }} de
     {{ willService["dataFiltro"].value | date: "yyyy" }}:
-    <p *ngIf="willService.valorTotalMes">{{ willService.valorTotalMes | currency: "BRL" }}</p>
-    <i *ngIf="!willService.valorTotalMes" class="pi pi-spin pi-spinner icone-valor"></i>
+    <p *ngIf="willService.valorTotalMes || willService.valorTotalMes === 0" class="inline">{{ willService.valorTotalMes | currency: "BRL" }}</p>
+    <i *ngIf="willService.valorTotalMes === null" class="pi pi-spin pi-spinner icone-valor"></i>
 
   </h3>
   <p-button severity="secondary" [raised]="true" routerLink="ida-terapia/incluir">

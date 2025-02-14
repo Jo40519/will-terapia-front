@@ -37,36 +37,36 @@ export class CorridaTerapiaWillService {
 
   async listarCorridas(): Promise<Array<CorridaTerapiaWill>> {
     return lastValueFrom(
-      this.http.get(this.urlApi),
+      this.http.get(this.desenvUrl),
     ) as Object as Array<CorridaTerapiaWill>;
   }
   
   async listarCorridaMesAno(ano: number, mes: number): Promise<any[]> {
-    return firstValueFrom(this.http.get<any[]>(`${this.urlApi}/listar/${ano}/${mes}`));
+    return firstValueFrom(this.http.get<any[]>(`${this.desenvUrl}/listar/${ano}/${mes}`));
   }
 
   async cadastrarIdaTerapi(
     entrada: CorridaTerapiaWill
   ): Promise<CorridaTerapiaWill> {
     return firstValueFrom(
-      this.http.post(this.urlApi, entrada),
+      this.http.post(this.desenvUrl, entrada),
     ) as Object as CorridaTerapiaWill;
   }
 
   async alterarTerapia(terapiaWill: CorridaTerapiaWill): Promise<CorridaTerapiaWill> {
     return firstValueFrom(
-      this.http.put(`${this.urlApi}/${terapiaWill.id}`, terapiaWill)
+      this.http.put(`${this.desenvUrl}/${terapiaWill.id}`, terapiaWill)
     ) as Object as CorridaTerapiaWill;
   }
 
   async excluirIdaTerapia(terapiaWill: CorridaTerapiaWill) {
     return firstValueFrom(
-      this.http.delete(`${this.urlApi}/${terapiaWill.id}`)
+      this.http.delete(`${this.desenvUrl}/${terapiaWill.id}`)
     )
   }
 
   async getSomaPorMes(ano: number, mes: number): Promise<number> {
-    return firstValueFrom(this.http.get<number>(`${this.urlApi}/soma/${ano}/${mes}`));
+    return firstValueFrom(this.http.get<number>(`${this.desenvUrl}/soma/${ano}/${mes}`));
   }
 
     detalharCorrida(corridaTerapia: CorridaTerapiaWill) {
@@ -106,6 +106,7 @@ export class CorridaTerapiaWillService {
 
   executarMensagens(mensagem: string, severity: string, summary: string) {
     console.log('QUANTAS VEZES ESTOU SENDO CHAMADA?')
+    this.mensagensAlert = [];
     this.mensagensAlert.push({
       detail: mensagem,
       severity: severity,
