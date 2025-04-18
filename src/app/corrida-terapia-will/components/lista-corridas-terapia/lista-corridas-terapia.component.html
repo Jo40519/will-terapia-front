@@ -26,6 +26,7 @@
       <th>Valor da Ida</th>
       <th>Valor da Volta</th>
       <th>Valor total dia</th>
+      <th>Descrição</th>
       <th>Ações</th>
     </tr>
   </ng-template>
@@ -102,6 +103,17 @@
       >
         {{ corr.valorTotal | currency: "BRL" }}
       </td>
+
+      <td
+      class="font-bold"
+      [class]="
+        corr.indicadorPodeLevar && corr.indicadorPodeTrazer
+          ? 'bg-green-200'
+          : 'bg-red-200'
+      "
+    >
+      {{ corr.descricao}}
+    </td>
 
       <td
   [class]="
